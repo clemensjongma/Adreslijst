@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<body onload="naarScherm();">
+<p><h1>Adressenlijst</h1></p>
+<input id="MyNewName" type="text" placeholder="Voeg iemand toe">
+<p><button onclick="voegIemandToe();ClearButton();">Add</button></p>
+
+<button onclick="sorteerAZ();">Sorteer A-Z</button>
+<button onclick="sorteerZA();">Sorteer Z-A</button>
+<br/>
+<p><input id="MyFilterBox" type="text" placeholder="Zoek iemand">
+
+
+<button onclick="myFilterFunction();ClearButton();" >Zoek...</button></p>
+
+<button onclick="opnieuw()">Opnieuw</button>
+
+<button onclick="naarScherm()">Print</button>
+
+<p id="demo"></p>
+
+<!--var flen, text, i;
+var cursisten = [];
+cursisten.voornaam = ["Bart","Rene","Richard","Marcella","Constant","Jan-Willem","Jack","Chris","Chelan","Stas","Martijn","Anke","Clemens"];
+cursisten.achternaam = ["Brinks","Spijker","Alp","Haddering",
+        "Zwijnenberg","Haeke","Sleebos","Adamus","Keyzer","Sinyakov",
+        "Blokhuis","Ebbelink","Jongma"];
+cursisten.gitnaam = ["https://github.com/BartBrinks","https://github.com/renedotone",
+                    "https://github.com/richardalp", "https://github.com/MarcellaHadderingh",
+                    "https://github.com/constantz","https://github.com/jwhaeke",
+                    "https://github.com/jacksleebos","https://github.com/Cros-cris",
+                    "https://github.com/chelankeijzer/","https://github.com/JettazIFrankenstein",
+                    "https://github.com/mblokhuis"," https://github.com/AnkeEbbelink",
+                    "https://github.com/clemensjongma"]
+flen = cursisten.voornaam.length; -->
+
+
+<script>
+
+
+
+
+var personen = ["Rene", "Jeroen", "Clemens", "Aap", "aap", "Margriet","Hans","Frans","Lisa","Gina", ];
+//schaduwbestand aanmaken voor filterfunctie
+var ShadowPerson = personen.slice();
+document.getElementById("demo").innerHTML = personen;
+
+
+
+
+function voegIemandToe(){
+ // get value from the input text
+                var inputText = document.getElementById("MyNewName").value;
+ // append data to the array
+                personen.push(inputText);
+        var pushvalue = "";
+                
+                for(i = 0; i < personen.length; i++)
+                {
+                    pushvalue = pushvalue + personen[i] + " ";
+                }
+                
+                // display array data
+                document.getElementById('demo').innerHTML = pushvalue;
+
+
+}
+
+function ClearButton(){
+  
+  document.getElementById('MyNewName').value = "";
+  document.getElementById('MyFilterBox').value = "";
+}
+
+
+ function sorteerAZ(){
+     personen.sort();
+     document.getElementById("demo").innerHTML = personen;
+     }        
+
+function sorteerZA(){
+     personen.sort().reverse();
+     document.getElementById("demo").innerHTML = personen;
+     }    
+    
+    
+
+   function myFilterFunction(){
+        var input, filter,i,txtValue, ai;
+        //in schaduwbestand worden elementen verwijderd
+        //en blijft oorstpronkelijk bestand intact
+        input = document.getElementById('MyFilterBox');
+        filter = input.value.toUpperCase();
+        for (i = 0; i < ShadowPerson.length; i++) {    
+            if (ShadowPerson[i].toUpperCase().indexOf(filter) > -1) {
+            ShadowPerson[i] = ShadowPerson[i];
+            } else {
+            ShadowPerson[i] = "";
+        }
+        document.getElementById("demo").innerHTML = ShadowPerson;
+        
+        }
+   }    
+    function opnieuw(){
+        //schaduwbestand wordt weer gevuld met personen
+        ShadowPerson = personen.slice();
+        document.getElementById("demo").innerHTML = personen;
+        naarScherm();
+        }
+
+    function naarScherm(){
+        var printvalue = "";
+                
+                for(i = 0; i < personen.length; i++)
+                {
+                    printvalue = printvalue + personen[i] + "<br> ";
+                }
+                
+                // display array data
+                document.getElementById('demo').innerHTML = printvalue;
+
+    }
+
+
+
+
+
+ 
+
+
+
+</script>
+
+</body>
+</html>
