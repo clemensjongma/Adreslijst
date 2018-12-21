@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body onload="naarScherm();">
-<p><h1>Adressenlijst</h1></p>
+<p><h1>Adreslijst</h1></p>
+<p>(met array's in plaats van list items)</p>
 <input id="MyNewName" type="text" placeholder="Voeg iemand toe">
 <p><button onclick="voegIemandToe();ClearButton();">Add</button></p>
 
@@ -41,6 +42,7 @@ flen = cursisten.voornaam.length; -->
 
 
 var personen = ["Rene", "Jeroen", "Clemens", "Aap", "aap", "Margriet","Hans","Frans","Lisa","Gina", ];
+personen.achternaam = ["Spijker","Wichers", "Jongma", "Dier", "dier","Oost","Jongma","Jongma","Jongma","Jongma",]
 //schaduwbestand aanmaken voor filterfunctie
 var ShadowPerson = personen.slice();
 document.getElementById("demo").innerHTML = personen;
@@ -57,7 +59,7 @@ function voegIemandToe(){
                 
                 for(i = 0; i < personen.length; i++)
                 {
-                    pushvalue = pushvalue + personen[i] + " ";
+                    pushvalue = pushvalue + personen[i] + "<br>";
                 }
                 
                 // display array data
@@ -74,13 +76,31 @@ function ClearButton(){
 
 
  function sorteerAZ(){
-     personen.sort();
-     document.getElementById("demo").innerHTML = personen;
+    personen.sort();
+    var sortvalue = "";
+                
+                for(i = 0; i < personen.length; i++)
+                {
+                    sortvalue = sortvalue + personen[i] + "<br>";
+                }
+                
+                // display array data
+                document.getElementById('demo').innerHTML = sortvalue;
+    
+     
      }        
 
 function sorteerZA(){
      personen.sort().reverse();
-     document.getElementById("demo").innerHTML = personen;
+     var revsortvalue = "";
+                
+                for(i = 0; i < personen.length; i++)
+                {
+                    revsortvalue = revsortvalue + personen[i] + "<br>";
+                }
+                
+                // display array data
+                document.getElementById('demo').innerHTML = revsortvalue;
      }    
     
     
@@ -93,7 +113,7 @@ function sorteerZA(){
         filter = input.value.toUpperCase();
         for (i = 0; i < ShadowPerson.length; i++) {    
             if (ShadowPerson[i].toUpperCase().indexOf(filter) > -1) {
-            ShadowPerson[i] = ShadowPerson[i];
+            ShadowPerson[i] = ShadowPerson[i] + "<br>";
             } else {
             ShadowPerson[i] = "";
         }
