@@ -1,24 +1,74 @@
 <!DOCTYPE html>
 <html>
 <body onload="naarScherm();">
-<p><h1>Adreslijst</h1></p>
-<p>(met array's in plaats van list items)</p>
-<input id="MyNewName" type="text" placeholder="Voeg iemand toe">
-<p><button onclick="voegIemandToe();ClearButton();">Add</button></p>
+        <style>
+            #firstColumn{
+                display: block;
+                float:right;
+                background-color:beige; 
+                width: 40%;
+                border-radius: 20px;
+                padding-top: 20px;
+                padding-left: 40px;
+                padding-bottom: 50px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                max-height: 800px;
+            }
+        
+            #secondColumn{
+               display: block;
+                float:left;
+                color: black;
+                background-color:beige; 
+                width: 40%;
+                border-radius: 20px;
+                padding-left: 40px;
+                padding-right:40px;
+                padding-top: 20px;
+                
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                min-height: 300px;
 
-<button onclick="sorteerAZ();">Sorteer A-Z</button>
-<button onclick="sorteerZA();">Sorteer Z-A</button>
-<br/>
-<p><input id="MyFilterBox" type="text" placeholder="Zoek iemand">
+            }
+            #titel{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                Font-size: 30px; color:black;
+                background-color:beige;
+                padding-left:40px;
+                padding-top:10px;
+                padding-bottom:10px;
+                border-radius: 20px;
+                text-align: center;
+            }
+                 
 
+        </style>
+        
+        <p><div id="titel">Namenlijst</div></p>
+<p></p>
 
-<button onclick="myFilterFunction();ClearButton();" >Zoek...</button></p>
-
-<button onclick="opnieuw()">Opnieuw</button>
-
-<button onclick="naarScherm()">Print</button>
-
+<div id= "secondColumn">
 <p id="demo"></p>
+</div>
+<div id="firstColumn">
+
+    <p>Voeg hier iemand toe:</p>
+    <input id="MyNewName" type="text" placeholder="Vul hier een naam in">
+    <button onclick="voegIemandToe();ClearButton();">Voeg toe</button>
+    <p>Sorteer:</p>
+    <p><button onclick="sorteerAZ();">Volgorde A - Z</button> of 
+    <button onclick="sorteerZA();">Volgorde Z - A</button></p>
+    <p>Zoek hier iemand:</p>
+    <p><input id="MyFilterBox" type="text" placeholder="Vul hier een naam in">
+
+
+    <button onclick="myFilterFunction();ClearButton();" >Zoek</button></p>
+    <p></p>
+    <button onclick="opnieuw()">Wis de zoekresultaten</button>
+</div>
+<!-- <button onclick="naarScherm()">Print</button> -->
+
+
 
 <!--var flen, text, i;
 var cursisten = [];
